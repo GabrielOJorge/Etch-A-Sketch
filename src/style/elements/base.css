@@ -1,0 +1,6 @@
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
