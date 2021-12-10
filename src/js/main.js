@@ -1,5 +1,6 @@
 const mainContainer = document.querySelector("#container");
 const clearBtn = document.querySelector("#clear-btn")
+const rainbowBtn = document.querySelector("#rainbow-btn")
 
 for (let i = 0; i <= 256; i++) {
   let divs = document.createElement("div");
