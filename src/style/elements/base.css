@@ -1,9 +1,14 @@
 body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   height: 100vh;
 }
 
-main {
-  height: 100vh;
+#container {
+  height: 60vw;
+  width: 60vw;
+  background-color: #a1a1a1;
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
