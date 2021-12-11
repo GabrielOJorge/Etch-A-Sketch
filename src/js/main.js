@@ -1,33 +1,54 @@
 const mainContainer = document.querySelector("#container");
-const clearBtn = document.querySelector("#clear-btn")
-const rainbowBtn = document.querySelector("#rainbow-btn")
+const colorBtn = document.querySelector("#color-btn");
+const rainbowBtn = document.querySelector("#rainbow-btn");
+const clearBtn = document.querySelector("#clear-btn");
+const gridBtn = document.querySelector("#grid-btn");
 
-for (let i = 0; i <= 256; i++) {
-  let divs = document.createElement("div");
-  divs.addEventListener("mouseover", () => divs.style.background = "#000");
-  mainContainer.appendChild(divs);
-}
+let size = 16;
 
-clearBtn.addEventListener("click", () => {
-  clearGrid();
-  
-  function clearGrid() {
-    mainContainer.innerHTML = ''
-  }
-
-  let size = prompt("Size:");
-
-
-  if (size !== null) {
-    mainContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-    mainContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;  
-  } else {
-    size = 16;
-  }
+const setGridSize = (color = "#000") => {
+  mainContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  mainContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
   for (let i = 0; i <= size * size; i++) {
     let divs = document.createElement("div");
-    divs.addEventListener("mouseover", () => divs.style.background = "#000");
+    divs.addEventListener("mouseover", () => divs.style.background = color);
     mainContainer.appendChild(divs);
   }
+};
+
+setGridSize();
+
+const clearGrid = function() {
+  mainContainer.innerHTML = ''
+};
+
+gridBtn.addEventListener("click", () => {
+  clearGrid();
+  size = prompt("Size:");
+  setGridSize();
+});
+
+rainbowBtn.addEventListener("click", () => {
+  const getRandomNumber = (limit) => {
+    return Math.floor(Math.random() * limit);
+  };
+
+  const getRandomColor = () => {
+    const h = getRandomNumber(360);
+    const s = getRandomNumber(100);
+    const l = getRandomNumber(100);
+
+    return `hsl(${h}deg, ${s}%, ${l}%)`;
+  };
+
+  const randomColor = getRandomColor();
+
+  setGridSize(16, randomColor);
+  divs.addEventListener("mouseover", () => divs.style.background = randomColor);
+});
+
+clearBtn.addEventListener("click", () => {
+  clearGrid();
+  setGridSize();
 });
