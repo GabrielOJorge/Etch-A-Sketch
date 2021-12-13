@@ -4,12 +4,13 @@ body {
   justify-content: space-evenly;
   align-items: center;
   height: 100vh;
+  background-color: var(--clr-bg-color);
 }
 
 #container {
   height: 60vw;
   width: 60vw;
-  background-color: #a1a1a1;
+  background-color: #fff;
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
