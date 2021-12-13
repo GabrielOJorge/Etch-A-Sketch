@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="src/style/elements/base.css">
   <link rel="stylesheet" href="src/style/settings/color.css">
   <link rel="stylesheet" href="src/components/main-btn/main-btn.css">
-  <link rel="stylesheet" href="src/components/height-width/height-width.css">
+  <link rel="stylesheet" href="src/components/sketch-size/sketch-size.css">
 </head>
 <body>
   <div class="btn-wrapper">
@@ -18,10 +18,10 @@
     <button class="main-btn" id="random-color-btn">Random Color</button>
     <button class="main-btn" id="rainbow-btn">Rainbow Mode</button>
     <button class="main-btn" id="clear-btn">Clear</button>
-    <div class="height-width">
+    <div class="sketch-size">
       <span class="size-span"></span>X<span class="size-span"></span>
+      <input value="16" min="1" max="100" type="range" name="slider size" id="slider-size">
     </div>
-    <input value="16" min="1" max="100" type="range" name="size slider" id="size-slider">
   </div>
 
   <main id="container"></main>
