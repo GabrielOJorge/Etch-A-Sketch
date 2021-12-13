@@ -1,6 +1,7 @@
 body {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   height: 100vh;
 }
@@ -16,4 +17,10 @@ body {
 
 button, input {
   cursor: pointer;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    flex-direction: row;
+  }
 }

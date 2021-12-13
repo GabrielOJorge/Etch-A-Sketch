@@ -7,10 +7,10 @@ const sliderSize = document.querySelector("#slider-size");
 const colorInput = document.querySelector("#color-input");
 
 let size = sliderSize.value;
-let color = '#000';
+let color = colorInput.value;
 
 for (let i = 0; i < sizeValue.length; i++) {
-  sizeValue[i].textContent = `${size}`;
+  sizeValue[i].textContent = size;
 }
 
 const setGridSize = () => {
@@ -19,7 +19,7 @@ const setGridSize = () => {
   
   for (let i = 0; i <= size * size; i++) {
     let divs = document.createElement("div");
-    divs.addEventListener("mouseover", () => divs.style.background = `${color}`);
+    divs.addEventListener("mouseover", () => divs.style.background = color);
     mainContainer.appendChild(divs);
   }
 };
@@ -46,7 +46,7 @@ sliderSize.oninput = (() => {
   size = sliderSize.value;
   
   for (let i = 0; i < sizeValue.length; i++) {
-    sizeValue[i].textContent = `${size}`;
+    sizeValue[i].textContent = size;
   }
 
   clearGrid();
