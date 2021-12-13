@@ -1,10 +1,10 @@
 const mainContainer = document.querySelector("#container");
-const colorBtn = document.querySelector("#color-btn");
 const randomColorBtn = document.querySelector("#random-color-btn");
 const rainbowBtn = document.querySelector("#rainbow-btn");
 const clearBtn = document.querySelector("#clear-btn");
 const sizeValue = document.querySelectorAll(".size-value");
 const sliderSize = document.querySelector("#slider-size");
+const colorInput = document.querySelector("#color-input");
 
 let size = sliderSize.value;
 let color = '#000';
@@ -51,6 +51,10 @@ sliderSize.oninput = (() => {
 
   clearGrid();
   setGridSize();
+});
+
+colorInput.oninput = (() => {
+  color = colorInput.value;
 });
 
 randomColorBtn.addEventListener("click", () => {
