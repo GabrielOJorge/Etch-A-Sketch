@@ -1,7 +1,28 @@
-#color-input {
-  border-style: none;
+.color-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* input[type="color"] {
-  border: 0;
-} */
+#color-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 10rem;
+  height: 10rem;
+  background-color: transparent;
+  border: none;
+}
+
+#color-input::-webkit-color-swatch {
+  border: none;
+}
+
+#color-input::-moz-color-swatch {
+  border: none;
+}
+
+#color-label {
+ font-size: clamp(2rem, 2.5rem, 2vw); 
+}
