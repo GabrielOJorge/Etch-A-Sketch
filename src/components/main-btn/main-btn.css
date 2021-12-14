@@ -8,4 +8,13 @@
 .main-btn {
   border-style: none;
   background-color: var(--clr-btn-bg);
+  padding: 1rem;
+  font-size: clamp(1.6rem, 1.8rem, 2vw);
+  box-shadow: #000 .5rem .5rem;
+  transition: all .2s ease-in-out;
+}
+
+.main-btn:hover {
+  transform: scale(1.08);
+  background-color: var(--clr-btn-hover);
 }
