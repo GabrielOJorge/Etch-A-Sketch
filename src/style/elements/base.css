@@ -5,6 +5,8 @@ body {
   align-items: center;
   height: 100vh;
   background-color: var(--clr-bg);
+  font-family: 'Poppins', sans-serif;
+  color: var(--clr-font);
 }
 
 #container {
@@ -19,6 +21,8 @@ body {
 
 button, input {
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  color: var(--clr-font);
 }
 
 @media screen and (min-width: 700px) {
