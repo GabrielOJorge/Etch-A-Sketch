@@ -15,3 +15,26 @@
 .size-value {
   font-size: clamp(2rem, 2.5rem, 2vw);
 }
+
+input[type=range] {
+  background-color: transparent;
+}
+
+input[type=range]::-moz-range-track {
+  height: 5px;
+  background: #48505E;
+  border-radius: 50px;
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  border-style: none;
+  background: #9AA0AA;
+  transition: background .2s ease-in;
+}
+
+input[type=range]::-moz-range-thumb:hover {
+  background: var(--clr-btn-hover);
+}
