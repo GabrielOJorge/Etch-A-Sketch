@@ -4,3 +4,8 @@
   gap: 1.2rem;
   width: 100%;
 }
+
+.main-btn {
+  border-style: none;
+  background-color: var(--clr-btn-bg);
+}
