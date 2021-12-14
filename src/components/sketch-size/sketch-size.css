@@ -7,5 +7,11 @@
 
 .sketch-size div {
   display: flex;
+  align-items: center;
   gap: 1rem;
+  font-size: clamp(1.2rem, 1.4rem, 2vw);
+}
+
+.size-value {
+  font-size: clamp(2rem, 2.5rem, 2vw);
 }
