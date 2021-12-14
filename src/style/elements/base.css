@@ -11,11 +11,10 @@ body {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
-  height: 60vw;
-  width: 60vw;
+  height: min(80rem, 80vw);
+  width: min(80rem, 80vw);
   background-color: #fff;
   border: 1rem solid var(--clr-border);
-  border-radius: 3rem;
 }
 
 button, input {
