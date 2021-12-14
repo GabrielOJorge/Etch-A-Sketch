@@ -12,7 +12,7 @@
   width: 10rem;
   height: 10rem;
   background-color: transparent;
-  border: none;
+  border: 5px solid #000;
 }
 
 #color-input::-webkit-color-swatch {
