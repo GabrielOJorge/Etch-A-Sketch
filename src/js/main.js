@@ -13,7 +13,7 @@ for (let i = 0; i < sizeValue.length; i++) {
   sizeValue[i].textContent = size;
 }
 
-const setGridSize = () => {
+const setGrid = () => {
   mainContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   mainContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   
@@ -24,7 +24,19 @@ const setGridSize = () => {
   }
 };
 
-setGridSize();
+const setRainbowGrid = () => {
+  mainContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  mainContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+  
+  for (let i = 0; i <= size * size; i++) {
+    const randomColor = getRandomColor();
+    let divs = document.createElement("div");
+    divs.addEventListener("mouseover", () => divs.style.background = randomColor);
+    mainContainer.appendChild(divs);
+  }
+};
+
+setGrid();
 
 const clearGrid = function() {
   mainContainer.innerHTML = ''
@@ -50,7 +62,7 @@ sliderSize.oninput = (() => {
   }
 
   clearGrid();
-  setGridSize();
+  setGrid();
 });
 
 colorInput.oninput = (() => {
@@ -62,7 +74,12 @@ randomColorBtn.addEventListener("click", () => {
   color = randomColor;
 });
 
+rainbowBtn.addEventListener("click", () => {
+  clearGrid();
+  setRainbowGrid();
+});
+
 clearBtn.addEventListener("click", () => {
   clearGrid();
-  setGridSize();
+  setGrid();
 });
