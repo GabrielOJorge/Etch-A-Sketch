@@ -9,8 +9,8 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 10rem;
-  height: 10rem;
+  width: clamp(5rem, 8rem, 8vw);
+  height: clamp(5rem, 8rem, 8vw);
   background-color: transparent;
   border: 5px solid #000;
 }

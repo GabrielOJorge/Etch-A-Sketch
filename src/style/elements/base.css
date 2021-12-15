@@ -13,8 +13,8 @@ body {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
-  height: min(80rem, 70vw);
-  width: min(80rem, 70vw);
+  height: min(80rem, 60vw);
+  width: min(80rem, 60vw);
   background-color: #fff;
   border: 1rem solid var(--clr-border);
 }
@@ -30,5 +30,16 @@ button, input {
     flex-direction: row;
     justify-content: center;
     gap: 10rem;
+  }
+}
+
+@media (max-height: 600px) {
+  body {
+    flex-direction: row;
+  }
+
+  #container {
+  height: min(80rem, 40vw);
+  width: min(80rem, 40vw);
   }
 }

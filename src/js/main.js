@@ -19,7 +19,7 @@ const setGridSize = () => {
   
   for (let i = 0; i <= size * size; i++) {
     let divs = document.createElement("div");
-    divs.addEventListener("mouseover", () => divs.style.background = color);
+    divs.addEventListener("mouseover", () => divs.style.background = color)
     mainContainer.appendChild(divs);
   }
 };
