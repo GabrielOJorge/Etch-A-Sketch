@@ -9,9 +9,9 @@ const colorInput = document.querySelector("#color-input");
 let size = sliderSize.value;
 let color = colorInput.value;
 
-for (let i = 0; i < sizeValue.length; i++) {
-  sizeValue[i].textContent = size;
-}
+sizeValue.forEach(value => {
+  value.textContent = size;
+});
 
 const setGrid = () => {
   mainContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
