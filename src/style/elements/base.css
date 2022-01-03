@@ -9,7 +9,7 @@ body {
   color: var(--clr-font);
 }
 
-#container {
+#sketch {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
@@ -38,7 +38,7 @@ button, input {
     flex-direction: row;
   }
 
-  #container {
+  #sketch {
   height: min(80rem, 40vw);
   width: min(80rem, 40vw);
   }
