@@ -15,7 +15,7 @@ body {
   grid-template-rows: repeat(16, 1fr);
   height: min(80rem, 60vw);
   width: min(80rem, 60vw);
-  background-color: #fff;
+  background-color:var(--clr-white);
   border: 1rem solid var(--clr-border);
 }
 
@@ -33,7 +33,7 @@ button, input {
   }
 }
 
-@media (max-height: 600px) {
+@media (max-height: 500px) {
   body {
     flex-direction: row;
   }
