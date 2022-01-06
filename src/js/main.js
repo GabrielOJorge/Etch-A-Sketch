@@ -30,16 +30,14 @@ const clearGrid = () => {
   }
 };
 
-const getRandomNumber = (limit) => {
-  return Math.floor(Math.random() * limit);
-};
-
 const getRandomColor = () => {
-  const h = getRandomNumber(360);
-  const s = getRandomNumber(100);
-  const l = getRandomNumber(100);
-
-  return `hsl(${h}deg, ${s}%, ${l}%)`;
+  let randomColor = '#';
+  for (let i = 0; i < 6; i++){
+     const random = Math.random();
+     const bit = (random * 16) | 0;
+     randomColor += (bit).toString(16);
+  };
+  return randomColor;
 };
 
 sliderSize.oninput = (() => {
@@ -60,6 +58,7 @@ colorInput.oninput = (() => {
 randomColorBtn.addEventListener("click", () => {
   const randomColor = getRandomColor();
   color = randomColor;
+  colorInput.value = color;
 });
 
 // rainbowBtn.addEventListener("click", () => {
