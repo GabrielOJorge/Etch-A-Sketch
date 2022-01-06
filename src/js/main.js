@@ -16,27 +16,13 @@ sizeValue.forEach(value => {
 const setGrid = () => {
   sketch.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   sketch.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-  
+
   for (let i = 0; i < size * size; i++) {
     let divs = document.createElement("div");
     divs.addEventListener("mouseover", () => divs.style.background = color)
     sketch.appendChild(divs);
   }
 };
-
-const setRainbowGrid = () => {
-  sketch.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-  sketch.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-  
-  for (let i = 0; i <= size * size; i++) {
-    const randomColor = getRandomColor();
-    let divs = document.createElement("div");
-    divs.addEventListener("mouseover", () => divs.style.background = randomColor);
-    sketch.appendChild(divs);
-  }
-};
-
-setGrid();
 
 const clearGrid = () => {
   while (sketch.lastChild) {
@@ -76,12 +62,38 @@ randomColorBtn.addEventListener("click", () => {
   color = randomColor;
 });
 
-rainbowBtn.addEventListener("click", () => {
-  clearGrid();
-  setRainbowGrid();
-});
+// rainbowBtn.addEventListener("click", () => {
+//   currentMode = "rainbow";
+//   clearGrid();
+//   setGrid();
+// });
 
 clearBtn.addEventListener("click", () => {
   clearGrid();
   setGrid();
 });
+
+window.onload = () => {
+  color = "#000";
+  colorInput.value = "#000";
+  
+  size = 16;
+  sliderSize.value = 16;
+
+  sizeValue.forEach(value => {
+    value.textContent = size;
+  });
+
+  setGrid();
+};
+
+// for (let i = 0; i <= size * size; i++) {
+//   let divs = document.createElement("div");
+
+//   divs.addEventListener("mouseover", () => {
+//     const randomColor = getRandomColor();
+//     divs.style.background = randomColor;
+//   });
+
+//   sketch.appendChild(divs);
+// }
