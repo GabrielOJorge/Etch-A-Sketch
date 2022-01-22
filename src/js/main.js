@@ -8,6 +8,7 @@ const colorInput = document.querySelector("#color-input");
 
 let size = sliderSize.value;
 let color = colorInput.value;
+let currentMode = "color";
 
 sizeValue.forEach(value => {
   value.textContent = size;
@@ -19,7 +20,35 @@ const setGrid = () => {
 
   for (let i = 0; i < size * size; i++) {
     let divs = document.createElement("div");
-    divs.addEventListener("mouseover", () => divs.style.background = color)
+
+    divs.addEventListener("mouseover", () => {
+      const rainbowDivs = document.querySelectorAll(".rainbow");
+
+      rainbowDivs.forEach(() => {
+        color = getRandomColor();
+      });
+
+      divs.style.background = color
+    });
+
+    rainbowBtn.addEventListener("click", () => {
+      divs.classList.add("rainbow");
+    });
+
+    randomColorBtn.addEventListener("click", () => {
+      divs.classList.remove("rainbow");
+    });
+
+    colorInput.addEventListener("click", () => {
+      divs.classList.remove("rainbow");
+    });
+
+    if (currentMode === "color" || currentMode === "randomColor") {
+      divs.classList.remove("rainbow");
+    } else {
+      divs.classList.add("rainbow");
+    }
+
     sketch.appendChild(divs);
   }
 };
@@ -51,21 +80,26 @@ sliderSize.oninput = (() => {
   setGrid();
 });
 
+colorInput.addEventListener("click", () => {
+  currentMode = "color";
+  color = colorInput.value;
+});
+
 colorInput.oninput = (() => {
+  currentMode = "color";
   color = colorInput.value;
 });
 
 randomColorBtn.addEventListener("click", () => {
+  currentMode = "randomColor";
   const randomColor = getRandomColor();
   color = randomColor;
   colorInput.value = color;
 });
 
-// rainbowBtn.addEventListener("click", () => {
-//   currentMode = "rainbow";
-//   clearGrid();
-//   setGrid();
-// });
+rainbowBtn.addEventListener("click", () => {
+  currentMode = "rainbow";
+});
 
 clearBtn.addEventListener("click", () => {
   clearGrid();
@@ -85,14 +119,3 @@ window.onload = () => {
 
   setGrid();
 };
-
-// for (let i = 0; i <= size * size; i++) {
-//   let divs = document.createElement("div");
-
-//   divs.addEventListener("mouseover", () => {
-//     const randomColor = getRandomColor();
-//     divs.style.background = randomColor;
-//   });
-
-//   sketch.appendChild(divs);
-// }
