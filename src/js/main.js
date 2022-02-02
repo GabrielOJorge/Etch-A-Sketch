@@ -17,40 +17,19 @@ sizeValue.forEach(value => {
 const setGrid = () => {
   sketch.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   sketch.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-
+  
   for (let i = 0; i < size * size; i++) {
-    let divs = document.createElement("div");
-
-    divs.addEventListener("mouseover", () => {
-      const rainbowDivs = document.querySelectorAll(".rainbow");
-
-      rainbowDivs.forEach(() => {
-        color = getRandomColor();
-      });
-
-      divs.style.background = color
-    });
-
-    rainbowBtn.addEventListener("click", () => {
-      divs.classList.add("rainbow");
-    });
-
-    randomColorBtn.addEventListener("click", () => {
-      divs.classList.remove("rainbow");
-    });
-
-    colorInput.addEventListener("click", () => {
-      divs.classList.remove("rainbow");
-    });
-
-    if (currentMode === "color" || currentMode === "randomColor") {
-      divs.classList.remove("rainbow");
-    } else {
-      divs.classList.add("rainbow");
-    }
-
-    sketch.appendChild(divs);
+    let div = document.createElement("div");
+    div.addEventListener("mouseover", changeColor);
+    sketch.appendChild(div);
   }
+
+};
+
+const changeColor = div => { 
+  currentMode === "rainbow" ? 
+  div.target.style.backgroundColor = getRandomColor() : 
+  div.target.style.backgroundColor = color;
 };
 
 const clearGrid = () => {
